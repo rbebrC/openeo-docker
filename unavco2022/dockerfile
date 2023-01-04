@@ -133,7 +133,9 @@ COPY etc/startup.sh ${UNAVCO_FILES}/startup.sh
 # ISCE path & files:
 ENV OPT_PATH="/opt/conda/envs/unavco/lib/python3.8/site-packages/isce"
 
+#rbeber Util/ImageUtil/ImageLib.py patched due to https://github.com/isce-framework/isce2/pull/639/files#diff-333faa5c57b6ba134b9773390dea9d05d2be6133a7e80187a4e75c2096748067
 RUN git clone https://github.com/isce-framework/isce2.git && \
+    mv ./isce2/components/isceobj/Util/ImageUtil/ImageLib.py  ${OPT_PATH}/components/isceobj/Util/ImageUtil/ImageLib.py && \
     mv ./isce2/components/isceobj/Alos2Proc/runDownloadDem.py  ${OPT_PATH}/components/isceobj/Alos2Proc/runDownloadDem.py && \
     mv ./isce2/components/iscesys/DataManager/Dem1Manager.py ${OPT_PATH}/components/iscesys/DataManager/Dem1Manager.py && \
     mv ./isce2/components/iscesys/DataManager/Dem3Manager.py ${OPT_PATH}/components/iscesys/DataManager/Dem3Manager.py && \
