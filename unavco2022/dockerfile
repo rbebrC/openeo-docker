@@ -1,5 +1,10 @@
 FROM jupyter/base-notebook:hub-1.4.2 as release
 
+LABEL source_code = 'ASF - Alex Lewandowski, Rui Kawahara, & Eric Lundell'
+LABEL organization="FBK - Bruno Kessler Foundation"
+LABEL author="Raniero Beber"
+LABEL creation_date="2023-01-04"
+
 # Base Stage ****************************************************************
 USER root
 WORKDIR /

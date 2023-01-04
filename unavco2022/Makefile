@@ -8,12 +8,12 @@
 start: check build run 
 
 build:
-	docker build -f dockerfile -t unavco2022:latest .
+	docker build -f dockerfile -t unavco2022:0.01-test .
 
 
 run:
 	docker run -it --rm -p 8888:8888 \
-	-v ${PWD}/virtual_home:/home/jovyan unavco2022:latest
+	-v ${PWD}/virtual_home:/home/jovyan unavco2022:0.01-test
 
 check:
 	if [ ! -d "virtual_home" ]; then \
